@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { Header } from 'container/Header/Header'
-import { Main } from '../Main/Main'
-import { Footer } from '../Footer/Footer'
+import { Main } from 'container/Main/Main'
+import { Footer } from 'container/Footer/Footer'
 
 export const App = () => {
     return (
