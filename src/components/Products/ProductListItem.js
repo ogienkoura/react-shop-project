@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, CardActions, CardContent, Button } from '@mui/material'
+import './ProductsListItem.scss'
 
 export const ProductListItem = () => {
     return (
@@ -11,8 +12,8 @@ export const ProductListItem = () => {
                 <div>Capacity: 64Gb</div>
                 <div>500 $</div>
             </CardContent>
-            <CardActions>
-                <Button>Add to cart</Button>
+            <CardActions className="add-to-cart-block">
+                <Button variant="contained">Add to cart</Button>
             </CardActions>
         </Card>
     )
