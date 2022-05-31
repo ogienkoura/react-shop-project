@@ -1,9 +1,13 @@
 import React from 'react'
+import { Container } from '@mui/system'
+import { ProductsList } from 'components/Products/ProductsList'
 
 export const Main = () => {
     return (
         <>
-            <h1>Main</h1>
+            <Container>
+                <ProductsList />
+            </Container>
         </>
     )
 }
