@@ -1,5 +1,6 @@
 const products = [
     {
+        id: 1,
         name: 'iPhone 13 Pro',
         description: 'This is iPhone 13 Pro',
         type: 'phone',
@@ -7,6 +8,7 @@ const products = [
         price: '1000',
     },
     {
+        id: 2,
         name: 'iPhone 12',
         description: 'This is iPhone 12',
         type: 'phone',
@@ -14,6 +16,7 @@ const products = [
         price: '800',
     },
     {
+        id: 3,
         name: 'iPhone 11 Pro Max',
         description: 'This is iPhone 11 Pro Max',
         type: 'phone',
@@ -21,6 +24,7 @@ const products = [
         price: '700',
     },
     {
+        id: 4,
         name: 'Nokia 6151',
         description: 'This is Nokia 6151',
         type: 'phone',
@@ -28,6 +32,7 @@ const products = [
         price: '200',
     },
     {
+        id: 5,
         name: 'Siemens 123',
         description: 'This is Siemens 123',
         type: 'phone',
@@ -35,6 +40,7 @@ const products = [
         price: '150',
     },
     {
+        id: 6,
         name: 'Sony Xperia',
         description: 'This is Sony Xperia',
         type: 'phone',
