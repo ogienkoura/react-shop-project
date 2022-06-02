@@ -8,10 +8,14 @@ export const ProductListItem = ({
     type,
     capacity,
     price,
+    image,
 }) => {
     return (
         <Card>
             <CardContent>
+                <div className="product-img">
+                    <img src={image} alt="" />
+                </div>
                 <h2>{name}</h2>
                 <p className="product-description">{description}</p>
                 <div className="product-features">
