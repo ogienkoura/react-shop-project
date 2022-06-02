@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid, Typography } from '@mui/material'
 import { ProductListItem } from './ProductListItem'
 import productsArray from 'utils/poductsArray'
+import logo from 'assets/cart.png'
 
 export const ProductsList = () => {
     return (
@@ -16,7 +17,7 @@ export const ProductsList = () => {
             >
                 Products List
             </Typography>
-
+            <img src={logo}></img>
             <Grid
                 container
                 spacing={3}
@@ -24,17 +25,19 @@ export const ProductsList = () => {
                 justifyContent="center"
                 alignItems="center"
             >
-                {productsArray.map((product, i) => (
-                    <Grid item xs={12} sm={6} md={4} key={product.id}>
-                        <ProductListItem
-                            name={product.name}
-                            description={product.description}
-                            type={product.type}
-                            capacity={product.capacity}
-                            price={product.price}
-                        />
-                    </Grid>
-                ))}
+                {productsArray.map(
+                    ({ id, name, description, type, capacity, price }) => (
+                        <Grid item xs={12} sm={6} md={4} key={id}>
+                            <ProductListItem
+                                name={name}
+                                description={description}
+                                type={type}
+                                capacity={capacity}
+                                price={price}
+                            />
+                        </Grid>
+                    )
+                )}
             </Grid>
         </>
     )
