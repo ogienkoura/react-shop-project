@@ -21,7 +21,7 @@ export class ProductListItem extends React.Component {
         productCount: 1,
     }
 
-    onIncrementClick() {
+    onIncrementClick = () => {
         this.setState((prevState) => ({
             productCount: prevState.productCount + 1,
         }))
@@ -55,7 +55,7 @@ export class ProductListItem extends React.Component {
                         <Button
                             variant="outlined"
                             size="small"
-                            onClick={() => this.onIncrementClick()}
+                            onClick={this.onIncrementClick}
                         >
                             +
                         </Button>
