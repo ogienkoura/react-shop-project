@@ -11,16 +11,22 @@ import PropTypes from 'prop-types'
 import noImage from 'assets/no-image.jpg'
 
 export class ProductListItem extends React.Component {
-    // constructor() {
-    //     super()
-    //     this.state = {
-    //         productCount: 1,
-    //     }
-    // }
+    constructor() {
+        super()
+
+        this.onIncrementClick = this.onIncrementClick.bind(this)
+    }
 
     state = {
         productCount: 1,
     }
+
+    onIncrementClick() {
+        this.setState((prevState) => ({
+            productCount: prevState.productCount + 1,
+        }))
+    }
+
     render() {
         const { name, description, type, capacity, price, image } = this.props
         return (
@@ -46,7 +52,11 @@ export class ProductListItem extends React.Component {
                             size="small"
                             value={this.state.productCount}
                         />
-                        <Button variant="outlined" size="small">
+                        <Button
+                            variant="outlined"
+                            size="small"
+                            onClick={this.onIncrementClick}
+                        >
                             +
                         </Button>
                     </div>
