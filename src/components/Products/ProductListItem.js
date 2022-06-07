@@ -27,6 +27,12 @@ export class ProductListItem extends React.Component {
         }))
     }
 
+    onDecrementClick = () => {
+        this.setState((prevState) => ({
+            productCount: prevState.productCount - 1,
+        }))
+    }
+
     render() {
         const { name, description, type, capacity, price, image } = this.props
         return (
@@ -45,7 +51,11 @@ export class ProductListItem extends React.Component {
                     </div>
                     <div className="product-price">{price} $</div>
                     <div className="product-quantity">
-                        <Button variant="outlined" size="small">
+                        <Button
+                            variant="outlined"
+                            size="small"
+                            onClick={this.onDecrementClick}
+                        >
                             -
                         </Button>
                         <TextField
