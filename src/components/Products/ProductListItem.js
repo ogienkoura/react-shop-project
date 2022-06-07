@@ -1,16 +1,22 @@
 import React from 'react'
-import { Card, CardActions, CardContent, Button } from '@mui/material'
+import {
+    Card,
+    CardActions,
+    CardContent,
+    Button,
+    TextField,
+} from '@mui/material'
 import './ProductsListItem.scss'
 import PropTypes from 'prop-types'
 import noImage from 'assets/no-image.jpg'
 
 export const ProductListItem = ({
     name,
-    description = 'No Description...',
+    description,
     type,
     capacity,
     price,
-    image = noImage,
+    image,
 }) => {
     return (
         <Card>
@@ -27,6 +33,15 @@ export const ProductListItem = ({
                     <span>Capacity:</span> {capacity} Gb
                 </div>
                 <div className="product-price">{price} $</div>
+                <div className="product-quantity">
+                    <Button variant="outlined" size="small">
+                        -
+                    </Button>
+                    <TextField size="small" value="1" />
+                    <Button variant="outlined" size="small">
+                        +
+                    </Button>
+                </div>
             </CardContent>
             <CardActions className="add-to-cart-block">
                 <Button variant="contained">Add to cart</Button>
@@ -44,7 +59,7 @@ ProductListItem.propTypes = {
     image: PropTypes.string,
 }
 
-// ProductListItem.defaultProps = {
-//     description: 'No desc',
-//     image: noImage,
-// }
+ProductListItem.defaultProps = {
+    description: 'No desc',
+    image: noImage,
+}
