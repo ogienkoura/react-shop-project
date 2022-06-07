@@ -11,29 +11,37 @@ import PropTypes from 'prop-types'
 import noImage from 'assets/no-image.jpg'
 
 export class ProductListItem extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            productCount: 1,
+        }
+    }
     render() {
+        const { name, description, type, capacity, price, image } = this.props
         return (
             <Card>
                 <CardContent>
                     <div className="product-img">
-                        <img src={this.props.image} alt={this.props.name} />
+                        <img src={image} alt={name} />
                     </div>
-                    <h2>{this.props.name}</h2>
-                    <p className="product-description">
-                        {this.props.description}
-                    </p>
+                    <h2>{name}</h2>
+                    <p className="product-description">{description}</p>
                     <div className="product-features">
-                        <span>Type:</span> {this.props.type}
+                        <span>Type:</span> {type}
                     </div>
                     <div className="product-features">
-                        <span>Capacity:</span> {this.props.capacity} Gb
+                        <span>Capacity:</span> {capacity} Gb
                     </div>
-                    <div className="product-price">{this.props.price} $</div>
+                    <div className="product-price">{price} $</div>
                     <div className="product-quantity">
                         <Button variant="outlined" size="small">
                             -
                         </Button>
-                        <TextField size="small" value="1" />
+                        <TextField
+                            size="small"
+                            value={this.state.productCount}
+                        />
                         <Button variant="outlined" size="small">
                             +
                         </Button>
