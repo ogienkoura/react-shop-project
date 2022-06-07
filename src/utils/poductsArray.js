@@ -2,7 +2,7 @@ const products = [
     {
         id: 1,
         name: 'iPhone 13 Pro',
-        description: 'This is iPhone 13 Pro',
+        // description: 'This is iPhone 13 Pro',
         type: 'phone',
         capacity: 128,
         price: 1000,
@@ -51,7 +51,7 @@ const products = [
         type: 'phone',
         capacity: 64,
         price: 250,
-        image: 'images/phone-6.jpg',
+        // image: 'images/phone-6.jpg',
     },
 ]
 
