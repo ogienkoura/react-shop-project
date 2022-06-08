@@ -19,19 +19,45 @@ export class ProductListItem extends React.Component {
 
     state = {
         productCount: 1,
+        decrementBtn: false,
+        incrementBtn: false,
     }
 
     onIncrementClick = () => {
         this.setState((prevState) => ({
             productCount: prevState.productCount + 1,
         }))
+        if (this.state.productCount >= 9) {
+            this.setState({
+                incrementBtn: true,
+            })
+        } else {
+            this.setState({
+                incrementBtn: false,
+            })
+        }
     }
 
     onDecrementClick = () => {
         this.setState((prevState) => ({
             productCount: prevState.productCount - 1,
         }))
+        if (this.state.productCount <= 1) {
+            this.setState({
+                decrementBtn: true,
+            })
+        } else {
+            this.setState({
+                decrementBtn: false,
+            })
+        }
     }
+
+    // buttonCheck = () => {
+    //     this.setState({
+    //         disabledBtn: true,
+    //     })
+    // }
 
     render() {
         const { name, description, type, capacity, price, image } = this.props
@@ -52,6 +78,7 @@ export class ProductListItem extends React.Component {
                     <div className="product-price">{price} $</div>
                     <div className="product-quantity">
                         <Button
+                            disabled={this.state.decrementBtn}
                             variant="outlined"
                             size="small"
                             onClick={this.onDecrementClick}
@@ -63,6 +90,7 @@ export class ProductListItem extends React.Component {
                             value={this.state.productCount}
                         />
                         <Button
+                            disabled={this.state.incrementBtn}
                             variant="outlined"
                             size="small"
                             onClick={this.onIncrementClick}
@@ -72,7 +100,7 @@ export class ProductListItem extends React.Component {
                     </div>
                 </CardContent>
                 <CardActions className="add-to-cart-block">
-                    <Button variant="contained">Add to cart</Button>
+                    <Button variant="outlined">Add to cart</Button>
                 </CardActions>
             </Card>
         )
