@@ -42,7 +42,7 @@ export class ProductListItem extends React.Component {
         this.setState((prevState) => ({
             productCount: prevState.productCount - 1,
         }))
-        if (this.state.productCount <= 1) {
+        if (this.state.productCount <= 2) {
             this.setState({
                 decrementBtn: true,
             })
