@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     Card,
     CardActions,
@@ -18,6 +18,10 @@ export const ProductListItem = ({
     price,
     image,
 }) => {
+    const [count, setCount] = useState(1)
+
+    const onIncrementClick = () => setCount(count + 1)
+    const onDecrementCLick = () => setCount(count - 1)
     return (
         <Card>
             <CardContent>
@@ -34,11 +38,21 @@ export const ProductListItem = ({
                 </div>
                 <div className="product-price">{price} $</div>
                 <div className="product-quantity">
-                    <Button variant="outlined" size="small">
+                    <Button
+                        variant="contained"
+                        size="small"
+                        onClick={onDecrementCLick}
+                        disabled={count <= 1}
+                    >
                         -
                     </Button>
-                    <TextField size="small" value="1" />
-                    <Button variant="outlined" size="small">
+                    <TextField size="small" value={count} />
+                    <Button
+                        disabled={count >= 10}
+                        variant="contained"
+                        size="small"
+                        onClick={onIncrementClick}
+                    >
                         +
                     </Button>
                 </div>
