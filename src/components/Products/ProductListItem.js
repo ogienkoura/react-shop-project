@@ -22,6 +22,7 @@ export const ProductListItem = ({
 
     const onIncrementClick = () => setCount(count + 1)
     const onDecrementCLick = () => setCount(count - 1)
+
     return (
         <Card>
             <CardContent>
@@ -30,6 +31,7 @@ export const ProductListItem = ({
                 </div>
                 <h2>{name}</h2>
                 <p className="product-description">{description}</p>
+
                 <div className="product-features">
                     <span>Type:</span> {type}
                 </div>
