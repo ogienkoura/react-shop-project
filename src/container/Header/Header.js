@@ -9,7 +9,7 @@ import { Container } from '@mui/material'
 import { Menu } from 'components/Menu/Menu'
 import { CartHeader } from 'components/Cart/CartHeader'
 
-export const Header = ({ cartData }) => {
+export const Header = ({ productsInCart }) => {
     return (
         <>
             <AppBar position="static">
@@ -32,7 +32,7 @@ export const Header = ({ cartData }) => {
                             Fake shop
                         </Typography>
                         <Menu />
-                        <CartHeader cartData={cartData} />
+                        <CartHeader productsInCart={productsInCart} />
                     </Toolbar>
                 </Container>
             </AppBar>
