@@ -3,7 +3,7 @@ import { Grid, Typography } from '@mui/material'
 import { ProductListItem } from './ProductListItem'
 import productsArray from 'utils/poductsArray'
 
-export const ProductsList = () => {
+export const ProductsList = ({addProductToCart}) => {
     return (
         <>
             <Typography
@@ -42,6 +42,7 @@ export const ProductsList = () => {
                                 capacity={capacity}
                                 price={price}
                                 image={image}
+                                addProductToCart={addProductToCart}
                             />
                         </Grid>
                     )
