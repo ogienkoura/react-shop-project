@@ -11,6 +11,7 @@ import PropTypes from 'prop-types'
 import noImage from 'assets/no-image.jpg'
 
 export const ProductListItem = ({
+    id,
     name,
     description,
     type,
@@ -61,7 +62,7 @@ export const ProductListItem = ({
                 </div>
             </CardContent>
             <CardActions className="add-to-cart-block">
-                <Button variant="contained" onClick={() => addProductToCart(count,price)}>Add to cart</Button>
+                <Button variant="contained" onClick={() => addProductToCart(id,count)}>Add to cart</Button>
             </CardActions>
         </Card>
     )

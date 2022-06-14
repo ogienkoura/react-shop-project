@@ -12,8 +12,11 @@ const [productsInCart, setProductsInCart] = useState({
     2: 12,
 })
     
-const addProductToCart = (count, price) => {
-
+const addProductToCart = (productId, count) => {
+    setProductsInCart((prevState) => ({
+        ...prevState,
+        [productId]: (prevState[productId] || 0) + count,
+    }))
 }
 
     return (
