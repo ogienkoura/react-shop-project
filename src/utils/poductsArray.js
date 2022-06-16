@@ -1,4 +1,4 @@
-const products = [
+const productsArray = [
     {
         id: 1,
         name: 'iPhone 13 Pro',
@@ -55,4 +55,4 @@ const products = [
     },
 ]
 
-export default products
+export default productsArray
