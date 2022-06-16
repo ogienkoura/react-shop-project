@@ -7,14 +7,14 @@ import { ProductsPage } from 'pages/Produts/ProductsPage'
 import { ShippingPage } from 'pages/Shipping/ShippingPage'
 import { PaymentPage } from 'pages/Payment/PaymentPage'
 
-export const Main = ({addProductToCart}) => {
+export const Main = ({addProductToCart, productsInCart}) => {
     return (
         <>
             <Container>
 
                 <Routes>
                     <Route path="/" element={<ProductsList addProductToCart={addProductToCart}/>} />
-                    <Route path="/cart" element={<CartPage />} />
+                    <Route path="/cart" element={<CartPage productsInCart={productsInCart}/>} />
                     <Route path="/products" element={<ProductsPage />}/>
                     <Route path="/shipping" element={<ShippingPage />}/>
                     <Route path="/payment" element={<PaymentPage />}/>

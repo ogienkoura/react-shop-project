@@ -23,7 +23,8 @@ const addProductToCart = (productId, count) => {
         <>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
-            <Main addProductToCart={addProductToCart}/>
+            <Main addProductToCart={addProductToCart}
+            productsInCart={productsInCart}/>
             <Footer />
         </>
     )
