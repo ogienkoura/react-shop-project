@@ -3,7 +3,11 @@ import React from 'react'
 import './CartProductListItemExtended.scss'
 import DeleteIcon from '@mui/icons-material/Delete'
 
-export const CartProductListItemExtended = ({ product, productCount }) => {
+export const CartProductListItemExtended = ({
+    product,
+    productCount,
+    removeProductFromCart,
+}) => {
     return (
         <Grid item xs={12} sm={6}>
             <Card className={'cart-product-extended'}>
@@ -18,7 +22,10 @@ export const CartProductListItemExtended = ({ product, productCount }) => {
                     <div>{product.name}</div>
                     <p>Price for one item : {product.price} $</p>
                     <p>Count: {productCount}</p>
-                    <Button variant="outlined">
+                    <Button
+                        variant="outlined"
+                        onClick={() => removeProductFromCart(product.id)}
+                    >
                         <DeleteIcon />
                     </Button>
                 </CardContent>
