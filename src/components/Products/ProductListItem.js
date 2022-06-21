@@ -1,14 +1,9 @@
 import React, { useState } from 'react'
-import {
-    Card,
-    CardActions,
-    CardContent,
-    Button,
-    TextField,
-} from '@mui/material'
+import { Card, CardActions, CardContent, Button } from '@mui/material'
 import './ProductsListItem.scss'
 import PropTypes from 'prop-types'
 import noImage from 'assets/no-image.jpg'
+import { Quantity } from 'components/Quantity/Quantity'
 
 export const ProductListItem = ({
     id,
@@ -23,7 +18,7 @@ export const ProductListItem = ({
     const [count, setCount] = useState(1)
 
     const onIncrementClick = () => setCount(count + 1)
-    const onDecrementCLick = () => setCount(count - 1)
+    const onDecrementClick = () => setCount(count - 1)
 
     return (
         <Card>
@@ -42,27 +37,20 @@ export const ProductListItem = ({
                 </div>
                 <div className="product-price">{price} $</div>
                 <div className="product-quantity">
-                    <Button
-                        variant="contained"
-                        size="small"
-                        onClick={onDecrementCLick}
-                        disabled={count <= 1}
-                    >
-                        -
-                    </Button>
-                    <TextField size="small" value={count} />
-                    <Button
-                        disabled={count >= 10}
-                        variant="contained"
-                        size="small"
-                        onClick={onIncrementClick}
-                    >
-                        +
-                    </Button>
+                    <Quantity
+                        count={count}
+                        onDecrementClick={onDecrementClick}
+                        onIncrementClick={onIncrementClick}
+                    />
                 </div>
             </CardContent>
             <CardActions className="add-to-cart-block">
-                <Button variant="contained" onClick={() => addProductToCart(id,count)}>Add to cart</Button>
+                <Button
+                    variant="contained"
+                    onClick={() => addProductToCart(id, count)}
+                >
+                    Add to cart
+                </Button>
             </CardActions>
         </Card>
     )
