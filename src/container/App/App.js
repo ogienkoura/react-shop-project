@@ -7,8 +7,8 @@ import { CssBaseline } from '@mui/material'
 
 export const App = () => {
     const [productsInCart, setProductsInCart] = useState({
-        1: 2,
-        2: 3,
+        // 1: 2,
+        // 2: 3,
     })
 
     const addProductToCart = (productId, count) => {

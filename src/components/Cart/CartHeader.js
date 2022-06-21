@@ -1,7 +1,8 @@
 import React from 'react'
 import './CartHeader.scss'
-import { keys } from 'lodash'
 import productsArray, { getProductsObject } from 'utils/poductsArray'
+import { CartTotal } from './CartTotal'
+import { CartProductList } from './CartProductList'
 
 export const CartHeader = ({
     productsInCart,
@@ -9,26 +10,8 @@ export const CartHeader = ({
 }) => {
     return (
         <div className="CartHeader">
-            <div>
-                {keys(productsInCart).map((productId) => (
-                    <div key={productId}>
-                        {productsObject[productId].name}:{' '}
-                        {productsInCart[productId]}
-                    </div>
-                ))}
-            </div>
-
-            <div>
-                Total:{' '}
-                {keys(productsInCart).reduce(
-                    (total, productId) =>
-                        total +
-                        productsInCart[productId] *
-                            productsArray[productId - 1].price,
-                    0
-                )}{' '}
-                $
-            </div>
+            <CartProductList productsInCart={productsInCart} />
+            <CartTotal productsInCart={productsInCart} />
         </div>
     )
 }
