@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const products = [
+=======
+const productsArray = [
+>>>>>>> 5481f25d2bd44b814d6332740faa59b8739c17c9
     {
         id: 1,
         name: 'iPhone 13 Pro',
@@ -55,4 +59,17 @@ const products = [
     },
 ]
 
+<<<<<<< HEAD
 export default products
+=======
+export const getProductsObject = (array) =>
+    array.reduce(
+        (obj, product) => ({
+            ...obj,
+            [product.id]: product,
+        }),
+        {}
+    )
+
+export default productsArray
+>>>>>>> 5481f25d2bd44b814d6332740faa59b8739c17c9
