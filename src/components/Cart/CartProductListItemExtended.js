@@ -1,6 +1,7 @@
-import { Card, CardContent, Grid } from '@mui/material'
+import { Button, Card, CardContent, Grid } from '@mui/material'
 import React from 'react'
 import './CartProductListItemExtended.scss'
+import DeleteIcon from '@mui/icons-material/Delete'
 
 export const CartProductListItemExtended = ({ product, productCount }) => {
     return (
@@ -16,7 +17,10 @@ export const CartProductListItemExtended = ({ product, productCount }) => {
                 <CardContent>
                     <div>{product.name}</div>
                     <p>Price for one item : {product.price} $</p>
-                    <div>Count: {productCount}</div>
+                    <p>Count: {productCount}</p>
+                    <Button variant="outlined">
+                        <DeleteIcon />
+                    </Button>
                 </CardContent>
             </Card>
         </Grid>

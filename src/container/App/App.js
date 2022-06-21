@@ -19,10 +19,21 @@ export const App = () => {
         }))
     }
 
+    const removeProductFromCart = (productId) => {
+        setProductsInCart((prevState) => {
+            let prevProductInCart = { ...prevState }
+            delete prevProductInCart[productId]
+            return prevProductInCart
+        })
+    }
+
     return (
         <>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
+            <button onClick={() => removeProductFromCart(2)}>
+                Delete product
+            </button>
             <Main
                 addProductToCart={addProductToCart}
                 productsInCart={productsInCart}
