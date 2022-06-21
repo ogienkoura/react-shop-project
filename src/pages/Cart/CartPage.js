@@ -1,16 +1,20 @@
 import React from 'react'
-import productsArray, { getProductsObject } from 'utils/poductsArray'
 import { CartTotal } from 'components/Cart/CartTotal'
 import { CartProductList } from 'components/Cart/CartProductList'
+import { Grid } from '@mui/material'
+import { CartProductListItemExtended } from 'components/Cart/CartProductListItemExtended'
 
-export const CartPage = ({
-    productsInCart,
-    productsObject = getProductsObject(productsArray),
-}) => {
+export const CartPage = ({ productsInCart }) => {
     return (
         <>
             <h1>Cart Page</h1>
-            <CartProductList productsInCart={productsInCart} />
+            <Grid container spacing={4}>
+                <CartProductList
+                    productsInCart={productsInCart}
+                    CartItem={CartProductListItemExtended}
+                />
+            </Grid>
+
             <CartTotal productsInCart={productsInCart} />
         </>
     )
