@@ -1,20 +1,11 @@
 import React from 'react'
 import Button from '@mui/material/Button'
-<<<<<<< HEAD
-=======
 import { NavLink } from 'react-router-dom'
 import './Menu.scss'
->>>>>>> 5481f25d2bd44b814d6332740faa59b8739c17c9
 
 export const Menu = () => {
     return (
         <>
-<<<<<<< HEAD
-            <Button color="inherit">HOME</Button>
-            <Button color="inherit">PRODUCTS</Button>
-            <Button color="inherit">SHIPPING</Button>
-            <Button color="inherit">PAYMENT</Button>
-=======
             <Button color="inherit">
                 <NavLink
                     to="/"
@@ -65,7 +56,6 @@ export const Menu = () => {
                     Cart
                 </NavLink>
             </Button>
->>>>>>> 5481f25d2bd44b814d6332740faa59b8739c17c9
         </>
     )
 }
