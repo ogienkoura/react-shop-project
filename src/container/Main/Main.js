@@ -6,6 +6,7 @@ import { CartPage } from 'pages/Cart/CartPage'
 import { ProductsPage } from 'pages/Produts/ProductsPage'
 import { ShippingPage } from 'pages/Shipping/ShippingPage'
 import { PaymentPage } from 'pages/Payment/PaymentPage'
+import { Reviews } from 'components/Reviews/Reviews'
 
 export const Main = ({
     addProductToCart,
@@ -20,7 +21,12 @@ export const Main = ({
                     <Route
                         path="/"
                         element={
-                            <ProductsList addProductToCart={addProductToCart} />
+                            <>
+                                <ProductsList
+                                    addProductToCart={addProductToCart}
+                                />
+                                <Reviews />
+                            </>
                         }
                     />
                     <Route
