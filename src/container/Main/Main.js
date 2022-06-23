@@ -11,6 +11,7 @@ export const Main = ({
     addProductToCart,
     productsInCart,
     removeProductFromCart,
+    changeProductQuantity,
 }) => {
     return (
         <>
@@ -28,6 +29,7 @@ export const Main = ({
                             <CartPage
                                 productsInCart={productsInCart}
                                 removeProductFromCart={removeProductFromCart}
+                                changeProductQuantity={changeProductQuantity}
                             />
                         }
                     />

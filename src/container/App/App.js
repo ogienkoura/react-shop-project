@@ -7,9 +7,8 @@ import { CssBaseline } from '@mui/material'
 
 export const App = () => {
     const [productsInCart, setProductsInCart] = useState({
-        // 1: 2,
-        // 2: 3,
-        // 3: 1,
+        1: 1,
+        2: 4,
     })
 
     const addProductToCart = (productId, count) => {
@@ -23,14 +22,23 @@ export const App = () => {
         setProductsInCart((prevState) => omit(prevState, productId))
     }
 
+    const changeProductQuantity = (productId, quantity) => {
+        setProductsInCart((prevState) => ({
+            ...prevState,
+            [productId]: quantity,
+        }))
+    }
+
     return (
         <>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
+
             <Main
                 removeProductFromCart={removeProductFromCart}
                 addProductToCart={addProductToCart}
                 productsInCart={productsInCart}
+                changeProductQuantity={changeProductQuantity}
             />
             <Footer />
         </>
