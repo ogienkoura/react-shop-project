@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 import noImage from 'assets/no-image.jpg'
 import { Quantity } from 'components/Quantity/Quantity'
 import { Link } from 'react-router-dom'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 
 export const ProductListItem = ({
     id,
@@ -27,6 +29,11 @@ export const ProductListItem = ({
                 <div className="product-img">
                     <img src={image} alt="" />
                 </div>
+                <Button variant="outlined">
+                    {' '}
+                    <FavoriteBorderIcon />{' '}
+                </Button>
+
                 <Link to={`products/${id}`}>
                     <h2>{name}</h2>
                 </Link>
