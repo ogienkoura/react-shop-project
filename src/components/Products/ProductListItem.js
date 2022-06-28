@@ -4,6 +4,7 @@ import './ProductsListItem.scss'
 import PropTypes from 'prop-types'
 import noImage from 'assets/no-image.jpg'
 import { Quantity } from 'components/Quantity/Quantity'
+import { Link } from 'react-router-dom'
 
 export const ProductListItem = ({
     id,
@@ -26,7 +27,9 @@ export const ProductListItem = ({
                 <div className="product-img">
                     <img src={image} alt="" />
                 </div>
-                <h2>{name}</h2>
+                <Link to={`products/${id}`}>
+                    <h2>{name}</h2>
+                </Link>
                 <p className="product-description">{description}</p>
 
                 <div className="product-features">
