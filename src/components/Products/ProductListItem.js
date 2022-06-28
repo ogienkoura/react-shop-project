@@ -7,6 +7,7 @@ import { Quantity } from 'components/Quantity/Quantity'
 import { Link } from 'react-router-dom'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+import { useSelector, useDispatch } from 'react-redux'
 
 export const ProductListItem = ({
     id,
@@ -23,15 +24,31 @@ export const ProductListItem = ({
     const onIncrementClick = () => setCount(count + 1)
     const onDecrementClick = () => setCount(count - 1)
 
+    const isLiked = useSelector((state) => state[id])
+    const dispatch = useDispatch()
+
     return (
         <Card>
             <CardContent>
                 <div className="product-img">
                     <img src={image} alt="" />
                 </div>
-                <Button variant="outlined">
+                <Button
+                    variant="outlined"
+                    onClick={() =>
+                        isLiked
+                            ? dispatch({
+                                  type: 'DISLIKE',
+                                  id,
+                              })
+                            : dispatch({
+                                  type: 'LIKE',
+                                  id,
+                              })
+                    }
+                >
                     {' '}
-                    <FavoriteBorderIcon />{' '}
+                    {isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}{' '}
                 </Button>
 
                 <Link to={`products/${id}`}>
