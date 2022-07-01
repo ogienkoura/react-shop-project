@@ -3,13 +3,16 @@ import React from 'react'
 import './CartProductListItemExtended.scss'
 import DeleteIcon from '@mui/icons-material/Delete'
 import { Quantity } from 'components/Quantity/Quantity'
+import { useDispatch, useSelector } from 'react-redux'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 
-export const CartProductListItemExtended = ({
-    product,
-    productCount,
-    removeProductFromCart,
-    changeProductQuantity,
-}) => {
+export const CartProductListItemExtended = ({ product, productCount }) => {
+    const isLiked = useSelector(
+        ({ productsLikeState }) => productsLikeState[product.id]
+    )
+    const dispatch = useDispatch()
+
     return (
         <Grid item xs={12} sm={6}>
             <Card className={'cart-product-extended'}>
@@ -28,14 +31,22 @@ export const CartProductListItemExtended = ({
                     <Quantity
                         onDecrementClick={() =>
                             productCount === 1
-                                ? removeProductFromCart(product.id)
-                                : changeProductQuantity(
-                                      product.id,
-                                      productCount - 1
-                                  )
+                                ? dispatch({
+                                      type: 'REMOVE_PRODUCT_FROM_CART',
+                                      id: product.id,
+                                  })
+                                : dispatch({
+                                      type: 'CHANGE_PRODUCT_QUANTITY',
+                                      id: product.id,
+                                      quantity: productCount - 1,
+                                  })
                         }
                         onIncrementClick={() =>
-                            changeProductQuantity(product.id, productCount + 1)
+                            dispatch({
+                                type: 'CHANGE_PRODUCT_QUANTITY',
+                                id: product.id,
+                                quantity: productCount + 1,
+                            })
                         }
                         count={productCount}
                         minCount={0}
@@ -44,9 +55,35 @@ export const CartProductListItemExtended = ({
                     <br />
                     <Button
                         variant="outlined"
-                        onClick={() => removeProductFromCart(product.id)}
+                        onClick={() =>
+                            dispatch({
+                                type: 'REMOVE_PRODUCT_FROM_CART',
+                                id: product.id,
+                            })
+                        }
                     >
                         <DeleteIcon />
+                    </Button>
+                    <Button
+                        variant="outlined"
+                        onClick={() =>
+                            isLiked
+                                ? dispatch({
+                                      type: 'DISLIKE',
+                                      id: product.id,
+                                  })
+                                : dispatch({
+                                      type: 'LIKE',
+                                      id: product.id,
+                                  })
+                        }
+                    >
+                        {' '}
+                        {isLiked ? (
+                            <FavoriteIcon />
+                        ) : (
+                            <FavoriteBorderIcon />
+                        )}{' '}
                     </Button>
                 </CardContent>
             </Card>

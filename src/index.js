@@ -4,12 +4,12 @@ import { App } from './container/App/App'
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { legacy_createStore as createStore } from 'redux'
-import { productsLikeReducer } from 'redux/productsLikeReducer'
+import { rootReducer } from 'redux/rootReducer'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 const store = createStore(
-    productsLikeReducer,
+    rootReducer,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
