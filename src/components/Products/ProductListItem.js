@@ -17,7 +17,6 @@ export const ProductListItem = ({
     capacity,
     price,
     image,
-    addProductToCart,
 }) => {
     const [count, setCount] = useState(1)
 

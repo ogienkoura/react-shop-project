@@ -13,6 +13,12 @@ export const CartProductListItemExtended = ({ product, productCount }) => {
     )
     const dispatch = useDispatch()
 
+    const removeProductFromCart = () =>
+        dispatch({
+            type: 'REMOVE_PRODUCT_FROM_CART',
+            id: product.id,
+        })
+
     return (
         <Grid item xs={12} sm={6}>
             <Card className={'cart-product-extended'}>
@@ -27,14 +33,10 @@ export const CartProductListItemExtended = ({ product, productCount }) => {
                     <div>{product.name}</div>
                     <p>Price for one item : {product.price} $</p>
                     <p>Count: {productCount}</p>
-
                     <Quantity
                         onDecrementClick={() =>
                             productCount === 1
-                                ? dispatch({
-                                      type: 'REMOVE_PRODUCT_FROM_CART',
-                                      id: product.id,
-                                  })
+                                ? removeProductFromCart()
                                 : dispatch({
                                       type: 'CHANGE_PRODUCT_QUANTITY',
                                       id: product.id,
@@ -51,19 +53,13 @@ export const CartProductListItemExtended = ({ product, productCount }) => {
                         count={productCount}
                         minCount={0}
                     />
-
                     <br />
                     <Button
                         variant="outlined"
-                        onClick={() =>
-                            dispatch({
-                                type: 'REMOVE_PRODUCT_FROM_CART',
-                                id: product.id,
-                            })
-                        }
+                        onClick={() => removeProductFromCart()}
                     >
                         <DeleteIcon />
-                    </Button>
+                    </Button>{' '}
                     <Button
                         variant="outlined"
                         onClick={() =>
