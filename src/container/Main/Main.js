@@ -8,6 +8,7 @@ import { ShippingPage } from 'pages/Shipping/ShippingPage'
 import { PaymentPage } from 'pages/Payment/PaymentPage'
 import { Reviews } from 'components/Reviews/Reviews'
 import { ProductsPageItem } from 'pages/Produts/ProductsPageItem'
+import { CheckoutPage } from 'pages/Checkout/CheckoutPage'
 
 export const Main = () => {
     return (
@@ -31,6 +32,7 @@ export const Main = () => {
                         path="/products/:id"
                         element={<ProductsPageItem />}
                     />
+                    <Route path="/checkout" element={<CheckoutPage />} />
                 </Routes>
             </Container>
         </>
