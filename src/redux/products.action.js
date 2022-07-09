@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const fetchProducts = () => (dispatch) => {
     axios
-        .get('https://run.mocky.io/v3/ea7b7859-1a85-421a-b5df-cd143774ded6')
+        .get('https://run.mocky.io/v3/2996e78b-33ae-497f-b282-7ed1b154464a')
         .then((res) => res.data)
         .then((data) =>
             dispatch({
