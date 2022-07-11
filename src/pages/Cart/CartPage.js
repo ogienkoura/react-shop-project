@@ -10,8 +10,13 @@ export const CartPage = () => {
     const productsInCart = useSelector(({ productsInCart }) => productsInCart)
     return (
         <>
-            <h1>Cart Page</h1>
-            <Grid container spacing={4}>
+            <Grid
+                container
+                spacing={4}
+                sx={{
+                    marginTop: 2,
+                }}
+            >
                 <CartProductList
                     productsInCart={productsInCart}
                     CartItem={CartProductListItemExtended}

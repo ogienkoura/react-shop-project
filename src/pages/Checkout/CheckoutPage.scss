@@ -15,13 +15,34 @@
 }
 
 .feedback {
-    border: 1px solid black;
-    border-radius: 10px;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    gap: 15px;
     margin: 0 auto;
+    margin-top: 20px;
+}
+
+.submit-total {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.card-contact-form {
+    max-width: 600px;
+    padding: 10px;
+
+    margin: 0 auto;
+    margin-top: 20px;
+    &-title {
+        text-transform: uppercase;
+        font-size: 20px;
+        margin: 20px 0;
+        text-align: center;
+    }
+    &-label {
+        margin-bottom: 15px;
+    }
+    &-control {
+        height: 50px;
+    }
 }
